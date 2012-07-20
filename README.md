@@ -1,6 +1,10 @@
+databank-mongodb
+----------------
+
 This is the MongoDB driver for Databank.
 
-# License
+License
+=======
 
 Copyright 2011, 2012, StatusNet Inc.
 
@@ -16,7 +20,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-# Usage
+Usage
+=====
 
 To create a MongoDB databank, use the `Databank.get()` method:
 
@@ -33,7 +38,8 @@ The driver takes the following parameters:
 * `checkSchema`: whether to synchronize the database with the schema
   argument at connection time. Defaults to `true`.
 
-# Database structures
+Database structures
+===================
 
 Databank "types" map to MongoDB collections.
 
@@ -54,7 +60,8 @@ An object like the following:
 The "indices" in a schema will be used to create indices in the
 database.
 
-## Simple types
+Simple types
+============
 
 Arrays and integers are stored in wrapped objects. The following call
 creates a new array:
