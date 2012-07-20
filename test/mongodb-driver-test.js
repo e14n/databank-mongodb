@@ -24,6 +24,11 @@ var assert = require('assert'),
 
 Databank.register('mongodb', MongoDatabank);
 
-var suite = databank.DriverTest('mongodb', {mktmp: true});
+var params = {host: 'localhost',
+              port: 27017,
+              dbname: 'test',
+              checkSchema: true};
+
+var suite = databank.DriverTest('mongodb', params);
 
 suite['export'](module);
