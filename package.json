@@ -4,7 +4,7 @@
     "engines": { "node": ">=0.6.x" },
     "author": "Evan Prodromou <evan@status.net>",
     "scripts": {"test": "vows test/*-test.js"},
-    "main": "./lib/index.js",
+    "main": "./lib/mongodb.js",
     "directories": {"lib": "./lib/"},
     "description": "Databank driver for MongoDB",
     "dependencies": {
