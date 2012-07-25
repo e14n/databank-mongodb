@@ -20,7 +20,7 @@ var assert = require('assert'),
     vows = require('vows'),
     databank = require('databank'),
     Databank = databank.Databank,
-    MongoDatabank = require('../lib/index');
+    MongoDatabank = require('../lib/mongodb');
 
 Databank.register('mongodb', MongoDatabank);
 
