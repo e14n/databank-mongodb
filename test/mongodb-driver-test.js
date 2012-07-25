@@ -26,7 +26,7 @@ Databank.register('mongodb', MongoDatabank);
 
 var params = {host: 'localhost',
               port: 27017,
-              mktmp: true,
+              dbname: 'test',
               checkSchema: true};
 
 var suite = databank.DriverTest('mongodb', params);
