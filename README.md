@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/evanp/databank-mongodb.png)](http://travis-ci.org/evanp/databank-mongodb)
 databank-mongodb
 ----------------
 
