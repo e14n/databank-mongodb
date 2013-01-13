@@ -10,6 +10,7 @@
     "dependencies": {
         "databank": "0.15.x",
         "mongodb": "1.2.x",
+        "underscore": "1.4.x",
         "step": "0.0.x"
     },
     "devDependencies": {
