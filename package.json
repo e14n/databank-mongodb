@@ -1,20 +1,20 @@
 {
     "name": "databank-mongodb",
-    "version": "0.15.0",
+    "version": "0.16.0",
     "engines": { "node": ">=0.6.x" },
-    "author": "Evan Prodromou <evan@status.net>",
+    "author": "Evan Prodromou <evan@e14n.com>",
     "scripts": {"test": "vows test/*-test.js"},
     "main": "./lib/mongodb.js",
     "directories": {"lib": "./lib/"},
     "description": "Databank driver for MongoDB",
     "dependencies": {
-        "databank": "0.16.x",
+        "databank": "0.18.x",
         "mongodb": "1.2.x",
         "underscore": "1.4.x",
         "step": "0.0.x"
     },
     "devDependencies": {
-        "vows": "0.6.x" 
+        "vows": "0.7.x"
     },
     "licenses": [
         {
@@ -31,10 +31,10 @@
         "storage", 
         "nosql" 
     ],
-    "homepage": "http://github.com/evanp/databank-mongodb",
+    "homepage": "http://github.com/e14n/databank-mongodb",
     "bugs": {
-        "web": "http://github.com/evanp/databank-mongodb/issues"
+        "web": "http://github.com/e14n/databank-mongodb/issues"
     },
     "repository": { "type":  "git",
-                    "url":   "http://github.com/evanp/databank-mongodb.git" }
+                    "url":   "http://github.com/e14n/databank-mongodb.git" }
 }
