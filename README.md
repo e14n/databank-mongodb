@@ -6,7 +6,7 @@ This is the MongoDB driver for Databank.
 License
 =======
 
-Copyright 2011, 2012, E14N https://e14n.com/
+Copyright 2011-2013 E14N https://e14n.com/
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -37,6 +37,11 @@ The driver takes the following parameters:
 * `schema`: the database schema, as described in the Databank README.
 * `checkSchema`: whether to synchronize the database with the schema
   argument at connection time. Defaults to `true`.
+* `rs_name`: replica set name to use. If this is set, `host` and `port`
+   are ignored.
+* `hosts`: array of hosts in the replica set you want to connect to.
+  These can be either arrays of [host, port] or strings (meaning use
+  the default port).
 
 Database structures
 ===================
