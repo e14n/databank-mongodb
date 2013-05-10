@@ -34,6 +34,8 @@ The driver takes the following parameters:
 * `host`: the host to connect to. Defaults to `localhost`.
 * `port`: the port to connect to. Defaults to `27017`.
 * `dbname`: the database to use. Defaults to `test`.
+* `dbuser`: the username. Defaults to null, meaning no authentication.
+* `dbpass`: the password. Defaults to null.
 * `schema`: the database schema, as described in the Databank README.
 * `checkSchema`: whether to synchronize the database with the schema
   argument at connection time. Defaults to `true`.
