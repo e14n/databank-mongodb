@@ -3,6 +3,8 @@ databank-mongodb
 
 This is the MongoDB driver for Databank.
 
+[![Build Status](https://secure.travis-ci.org/e14n/databank-mongodb.png)](http://travis-ci.org/e14n/databank-mongodb)
+
 License
 =======
 
