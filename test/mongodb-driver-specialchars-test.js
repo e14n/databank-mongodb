@@ -65,7 +65,7 @@ suite.addBatch({
                 assert.include(hat, "outer.brim");
                 assert.equal(hat["outer.brim"], "orange");
                 assert.equal(hat.crown, "black");
-            },
+            }
         },
         "and we add an object with a first-level key with a dollar sign ($)": {
             topic: function(db) {
@@ -78,6 +78,32 @@ suite.addBatch({
                 assert.include(shoe, "$cost");
                 assert.equal(shoe["$cost"], 16);
                 assert.equal(shoe.material, "leather");
+            }
+        },
+        "and we add an object with a second-level key with a period (.)": {
+            topic: function(db) {
+                var callback = this.callback;
+                db.create("tech", 23, {"web": {"2.0": true}}, callback);
+            },
+            "it works": function(err, tech) {
+                assert.ifError(err);
+                assert.isObject(tech);
+                assert.include(tech, "web");
+                assert.include(tech.web, "2.0");
+                assert.isTrue(tech.web["2.0"]);
+            }
+        },
+        "and we add an object with a second-level key with a dollar sign ($)": {
+            topic: function(db) {
+                var callback = this.callback;
+                db.create("show", 42, {"entertainer": {"ke$ha": false}}, callback);
+            },
+            "it works": function(err, show) {
+                assert.ifError(err);
+                assert.isObject(show);
+                assert.include(show, "entertainer");
+                assert.include(show.entertainer, "ke$ha");
+                assert.isFalse(show.entertainer["ke$ha"]);
             }
         }
     }
