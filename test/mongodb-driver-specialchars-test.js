@@ -65,6 +65,18 @@ suite.addBatch({
                 assert.include(hat, "outer.brim");
                 assert.equal(hat["outer.brim"], "orange");
                 assert.equal(hat.crown, "black");
+            },
+            "and we read that object": {
+                topic: function(hat, db) {
+                    db.read("hat", 8, this.callback);
+                },
+                "it works": function(err, hat) {
+                    assert.ifError(err);
+                    assert.isObject(hat);
+                    assert.include(hat, "outer.brim");
+                    assert.equal(hat["outer.brim"], "orange");
+                    assert.equal(hat.crown, "black");
+                }
             }
         },
         "and we add an object with a first-level key with a dollar sign ($)": {
@@ -78,6 +90,18 @@ suite.addBatch({
                 assert.include(shoe, "$cost");
                 assert.equal(shoe["$cost"], 16);
                 assert.equal(shoe.material, "leather");
+            },
+            "and we read that object": {
+                topic: function(shoe, db) {
+                    db.read("shoe", 15, this.callback);
+                },
+                "it works": function(err, shoe) {
+                    assert.ifError(err);
+                    assert.isObject(shoe);
+                    assert.include(shoe, "$cost");
+                    assert.equal(shoe["$cost"], 16);
+                    assert.equal(shoe.material, "leather");
+                }
             }
         },
         "and we add an object with a second-level key with a period (.)": {
@@ -91,6 +115,18 @@ suite.addBatch({
                 assert.include(tech, "web");
                 assert.include(tech.web, "2.0");
                 assert.isTrue(tech.web["2.0"]);
+            },
+            "and we read that object": {
+                topic: function(tech, db) {
+                    db.read("tech", 23, this.callback);
+                },
+                "it works": function(err, tech) {
+                    assert.ifError(err);
+                    assert.isObject(tech);
+                    assert.include(tech, "web");
+                    assert.include(tech.web, "2.0");
+                    assert.isTrue(tech.web["2.0"]);
+                }
             }
         },
         "and we add an object with a second-level key with a dollar sign ($)": {
@@ -104,6 +140,18 @@ suite.addBatch({
                 assert.include(show, "entertainer");
                 assert.include(show.entertainer, "ke$ha");
                 assert.isFalse(show.entertainer["ke$ha"]);
+            },
+            "and we read that object": {
+                topic: function(show, db) {
+                    db.read("show", 42, this.callback);
+                },
+                "it works": function(err, show) {
+                    assert.ifError(err);
+                    assert.isObject(show);
+                    assert.include(show, "entertainer");
+                    assert.include(show.entertainer, "ke$ha");
+                    assert.isFalse(show.entertainer["ke$ha"]);
+                }
             }
         }
     }
