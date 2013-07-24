@@ -66,7 +66,7 @@ suite.addBatch({
                 assert.equal(hat["outer.brim"], "orange");
                 assert.equal(hat.crown, "black");
             },
-            "and we read that object": {
+            "and we read it": {
                 topic: function(hat, db) {
                     db.read("hat", 8, this.callback);
                 },
@@ -76,6 +76,26 @@ suite.addBatch({
                     assert.include(hat, "outer.brim");
                     assert.equal(hat["outer.brim"], "orange");
                     assert.equal(hat.crown, "black");
+                },
+                "and we update it": {
+                    topic: function(read, created, db) {
+                        db.update("hat", 8, {"outer.brim": "green", "crown": "black"}, this.callback);
+                    },
+                    "it works": function(err, hat) {
+                        assert.ifError(err);
+                        assert.isObject(hat);
+                        assert.include(hat, "outer.brim");
+                        assert.equal(hat["outer.brim"], "green");
+                        assert.equal(hat.crown, "black");
+                    },
+                    "and we delete it": {
+                        topic: function(updated, read, created, db) {
+                            db.del("hat", 8, this.callback);
+                        },
+                        "it works": function(err) {
+                            assert.ifError(err);
+                        }
+                    }
                 }
             }
         },
@@ -91,7 +111,7 @@ suite.addBatch({
                 assert.equal(shoe["$cost"], 16);
                 assert.equal(shoe.material, "leather");
             },
-            "and we read that object": {
+            "and we read it": {
                 topic: function(shoe, db) {
                     db.read("shoe", 15, this.callback);
                 },
@@ -101,6 +121,26 @@ suite.addBatch({
                     assert.include(shoe, "$cost");
                     assert.equal(shoe["$cost"], 16);
                     assert.equal(shoe.material, "leather");
+                },
+                "and we update it": {
+                    topic: function(read, created, db) {
+                        db.update("shoe", 15, {"$cost": 4, "material": "leather"}, this.callback);
+                    },
+                    "it works": function(err, shoe) {
+                        assert.ifError(err);
+                        assert.isObject(shoe);
+                        assert.include(shoe, "$cost");
+                        assert.equal(shoe["$cost"], 4);
+                        assert.equal(shoe.material, "leather");
+                    },
+                    "and we delete it": {
+                        topic: function(updated, read, created, db) {
+                            db.del("shoe", 15, this.callback);
+                        },
+                        "it works": function(err) {
+                            assert.ifError(err);
+                        }
+                    }
                 }
             }
         },
@@ -116,7 +156,7 @@ suite.addBatch({
                 assert.include(tech.web, "2.0");
                 assert.isTrue(tech.web["2.0"]);
             },
-            "and we read that object": {
+            "and we read it": {
                 topic: function(tech, db) {
                     db.read("tech", 23, this.callback);
                 },
@@ -126,6 +166,26 @@ suite.addBatch({
                     assert.include(tech, "web");
                     assert.include(tech.web, "2.0");
                     assert.isTrue(tech.web["2.0"]);
+                },
+                "and we update it": {
+                    topic: function(read, created, db) {
+                        db.update("tech", 23, {"web": {"2.0": false}}, this.callback);
+                    },
+                    "it works": function(err, tech) {
+                        assert.ifError(err);
+                        assert.isObject(tech);
+                        assert.include(tech, "web");
+                        assert.include(tech.web, "2.0");
+                        assert.isFalse(tech.web["2.0"]);
+                    },
+                    "and we delete it": {
+                        topic: function(updated, read, created, db) {
+                            db.del("tech", 23, this.callback);
+                        },
+                        "it works": function(err) {
+                            assert.ifError(err);
+                        }
+                    }
                 }
             }
         },
@@ -141,7 +201,7 @@ suite.addBatch({
                 assert.include(show.entertainer, "ke$ha");
                 assert.isFalse(show.entertainer["ke$ha"]);
             },
-            "and we read that object": {
+            "and we read it": {
                 topic: function(show, db) {
                     db.read("show", 42, this.callback);
                 },
@@ -151,6 +211,26 @@ suite.addBatch({
                     assert.include(show, "entertainer");
                     assert.include(show.entertainer, "ke$ha");
                     assert.isFalse(show.entertainer["ke$ha"]);
+                },
+                "and we update it": {
+                    topic: function(read, created, db) {
+                        db.update("show", 42, {"entertainer": {"ke$ha": true}}, this.callback);
+                    },
+                    "it works": function(err, show) {
+                        assert.ifError(err);
+                        assert.isObject(show);
+                        assert.include(show, "entertainer");
+                        assert.include(show.entertainer, "ke$ha");
+                        assert.isTrue(show.entertainer["ke$ha"]);
+                    },
+                    "and we delete it": {
+                        topic: function(updated, read, created, db) {
+                            db.del("show", 42, this.callback);
+                        },
+                        "it works": function(err) {
+                            assert.ifError(err);
+                        }
+                    }
                 }
             }
         }
