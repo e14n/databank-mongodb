@@ -1,40 +1,48 @@
 {
-    "name": "databank-mongodb",
-    "version": "0.18.3",
-    "engines": { "node": ">=0.6.x" },
-    "author": "Evan Prodromou <evan@e14n.com>",
-    "scripts": {"test": "vows test/*-test.js"},
-    "main": "./lib/mongodb.js",
-    "directories": {"lib": "./lib/"},
-    "description": "Databank driver for MongoDB",
-    "dependencies": {
-        "databank": "~0.18.2",
-        "mongodb": "1.2.x",
-        "underscore": "1.4.x",
-        "step": "0.0.x"
-    },
-    "devDependencies": {
-        "vows": "0.7.x"
-    },
-    "licenses": [
-        {
-            "type": "Apache-2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0"
-        }
-    ],
-    "keywords": [
-        "databank",
-        "mongodb",
-        "driver",
-        "database", 
-        "json", 
-        "storage", 
-        "nosql" 
-    ],
-    "homepage": "http://github.com/e14n/databank-mongodb",
-    "bugs": {
-        "web": "http://github.com/e14n/databank-mongodb/issues"
-    },
-    "repository": { "type":  "git",
-                    "url":   "http://github.com/e14n/databank-mongodb.git" }
+  "name": "databank-mongodb",
+  "version": "0.18.4",
+  "engines": {
+    "node": ">=0.6.x"
+  },
+  "author": "Evan Prodromou <evan@e14n.com>",
+  "scripts": {
+    "test": "vows test/*-test.js"
+  },
+  "main": "./lib/mongodb.js",
+  "directories": {
+    "lib": "./lib/"
+  },
+  "description": "Databank driver for MongoDB",
+  "dependencies": {
+    "databank": "~0.19.1",
+    "mongodb": "~1.4.5",
+    "step": "0.0.x",
+    "underscore": "1.6.x"
+  },
+  "devDependencies": {
+    "vows": "0.7.x"
+  },
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "keywords": [
+    "databank",
+    "mongodb",
+    "driver",
+    "database",
+    "json",
+    "storage",
+    "nosql"
+  ],
+  "homepage": "http://github.com/e14n/databank-mongodb",
+  "bugs": {
+    "url": "http://github.com/e14n/databank-mongodb/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/e14n/databank-mongodb.git"
+  }
 }
