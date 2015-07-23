@@ -1,6 +1,6 @@
 {
   "name": "databank-mongodb",
-  "version": "0.18.4",
+  "version": "0.18.5",
   "engines": {
     "node": ">=0.6.x"
   },
