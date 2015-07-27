@@ -22,6 +22,10 @@ var assert = require('assert'),
     Databank = databank.Databank,
     MongoDatabank = require('../lib/mongodb');
 
+process.on('uncaughtException', function(err) {
+    console.error(err);
+});
+
 Databank.register('mongodb', MongoDatabank);
 
 var params = {host: 'localhost',
