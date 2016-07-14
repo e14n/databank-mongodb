@@ -1,0 +1,17 @@
+db1:
+  image: "mongo:latest"
+  ports:
+    - 127.0.41.1:27017:27017
+  command: 'mongod --replSet "databank0"'
+
+db2:
+  image: "mongo:latest"
+  ports:
+    - 127.0.41.2:27017:27017
+  command: 'mongod --replSet "databank0"'
+
+db3:
+  image: "mongo:latest"
+  ports:
+    - 127.0.41.3:27017:27017
+  command: 'mongod --replSet "databank0"'
