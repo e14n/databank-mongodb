@@ -38,7 +38,7 @@ var suite = vows.describe("checkSchema param is respected");
 suite.addBatch({
    "When we get a one-host databank with checkSchema set to false": {
       topic: function() {
-          var params = _.extend({checkSchema: false}, hostBase),
+          var params = _.extend({checkSchema: false, dbname: 'test-checkschema-false-' + Date.now()}, hostBase),
           db = Databank.get("mongodb", params);
           return db;
       },
@@ -48,7 +48,7 @@ suite.addBatch({
     },
     "When we get a one-host databank with checkSchema set to true": {
       topic: function() {
-        var params = _.extend({checkSchema: true}, hostBase),
+        var params = _.extend({checkSchema: true, dbname: 'test-checkschema-true-' + Date.now()}, hostBase),
           db = Databank.get("mongodb", params);
           return db;
       },
@@ -58,7 +58,7 @@ suite.addBatch({
     },
     "When we get a one-host databank with checkSchema undefined": {
       topic: function() {
-          var params = _.extend({}, hostBase),
+          var params = _.extend({dbname: 'test-checkschema-undefined-' + Date.now()}, hostBase),
                   db = Databank.get("mongodb", params);
           return db;
       },
@@ -68,7 +68,7 @@ suite.addBatch({
     },
   "When we get a replicated databank with checkSchema set to false": {
     topic: function() {
-        var params = _.extend({checkSchema: false}, rsBase),
+        var params = _.extend({checkSchema: false, dbname: 'test-checkschema-false-' + Date.now()}, rsBase),
         db = Databank.get("mongodb", params);
         return db;
     },
@@ -78,7 +78,7 @@ suite.addBatch({
   },
   "When we get a replicated databank with checkSchema set to true": {
     topic: function() {
-      var params = _.extend({checkSchema: true}, rsBase),
+      var params = _.extend({checkSchema: true, dbname: 'test-checkschema-true-' + Date.now()}, rsBase),
         db = Databank.get("mongodb", params);
         return db;
     },
@@ -88,7 +88,7 @@ suite.addBatch({
   },
   "When we get a replicated databank with checkSchema undefined": {
     topic: function() {
-        var params = _.extend({}, rsBase),
+        var params = _.extend({dbname: 'test-checkschema-undefined-' + Date.now()}, rsBase),
                 db = Databank.get("mongodb", params);
         return db;
     },

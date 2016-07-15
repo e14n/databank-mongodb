@@ -26,7 +26,7 @@ Databank.register('mongodb', MongoDatabank);
 
 var params = {rs_name: 'databank0',
               hosts: ['172.23.42.2', '172.23.42.3', '172.23.42.4'],
-              dbname: 'test',
+              dbname: 'test-replset-' + Date.now(),
               checkSchema: true};
 
 var suite = databank.DriverTest('mongodb', params);
