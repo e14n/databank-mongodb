@@ -1,0 +1,39 @@
+version: '2'
+
+services:
+
+  db1:
+    image: "mongo:latest"
+    command: 'mongod --replSet "databank0"'
+    networks:
+      db:
+        ipv4_address: 172.23.42.3
+
+  db2:
+    image: "mongo:latest"
+    command: 'mongod --replSet "databank0"'
+    networks:
+      db:
+        ipv4_address: 172.23.42.4
+
+  db3:
+    image: "mongo:latest"
+    command: 'mongod --replSet "databank0"'
+    networks:
+      db:
+        ipv4_address: 172.23.42.2
+
+  db4:
+    image: "mongo:latest"
+    networks:
+      db:
+        ipv4_address: 172.23.42.5
+
+networks:
+  db:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.23.42.0/24
+        gateway: 172.23.42.1
