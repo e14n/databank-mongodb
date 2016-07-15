@@ -25,15 +25,13 @@ var _ = require('underscore'),
 
 Databank.register('mongodb', MongoDatabank);
 
-hostBase = {host: 'localhost',
-        port: 27017,
-        dbname: 'test'};
+hostBase = {host: '172.23.42.5',
+            port: 27017,
+            dbname: 'test'};
 
-rsBase = {
-  rs_name: 'databank0',
-  hosts: ['mongodb-server.test', 'mongodb-secondary.test'],
-  dbname: 'test'
-};
+rsBase = {rs_name: 'databank0',
+          hosts: ['172.23.42.2', '172.23.42.3', '172.23.42.4'],
+          dbname: 'test'};
 
 var suite = vows.describe("checkSchema param is respected");
 

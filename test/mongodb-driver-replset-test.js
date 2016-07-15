@@ -25,7 +25,7 @@ var assert = require('assert'),
 Databank.register('mongodb', MongoDatabank);
 
 var params = {rs_name: 'databank0',
-              hosts: ['mongodb-server.test', 'mongodb-secondary.test'],
+              hosts: ['172.23.42.2', '172.23.42.3', '172.23.42.4'],
               dbname: 'test',
               checkSchema: true};
 

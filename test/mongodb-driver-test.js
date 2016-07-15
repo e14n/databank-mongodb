@@ -28,7 +28,7 @@ process.on('uncaughtException', function(err) {
 
 Databank.register('mongodb', MongoDatabank);
 
-var params = {host: 'localhost',
+var params = {host: '172.23.42.5',
               port: 27017,
               dbname: 'test',
               checkSchema: true};
