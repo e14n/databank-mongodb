@@ -8,6 +8,8 @@ env:
   COMPOSE_VERSION: 1.7.1
 
 before_install:
+ - apt-get update
+ - apt-get install docker
  - curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
  - chmod +x docker-compose
  - sudo mv docker-compose /usr/local/bin
@@ -23,4 +25,3 @@ script:
   - "docker-compose up -d"
   - "./node_modules/.bin/vows --spec test/mongodb-driver-test.js"
   - "docker-compose stop"
-  
