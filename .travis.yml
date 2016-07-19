@@ -1,8 +1,26 @@
-language: node_js
-node_js:
-  - "0.10"
-  - "0.8"
-  - "0.6"
-script: "./node_modules/.bin/vows --spec test/mongodb-driver-test.js"
+
+sudo: required
+
 services:
-  - mongodb
+  - docker
+
+env:
+  COMPOSE_VERSION: 1.7.1
+
+before_install:
+ - curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+ - chmod +x docker-compose
+ - sudo mv docker-compose /usr/local/bin
+
+language: node_js
+
+node_js:
+  - "4"
+  - "6"
+  - "0.12"
+
+script:
+  - "docker-compose up -d"
+  - "./node_modules/.bin/vows --spec test/mongodb-driver-test.js"
+  - "docker-compose stop"
+  
