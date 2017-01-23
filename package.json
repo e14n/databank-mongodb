@@ -16,7 +16,7 @@
   "dependencies": {
     "databank": "^0.19.5",
     "debug": "^2.2.0",
-    "mongodb": "^2.2.4",
+    "mongodb": "^2.2.21",
     "step": "^0.0.6",
     "underscore": "^1.8.3"
   },
