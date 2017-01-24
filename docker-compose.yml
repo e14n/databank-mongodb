@@ -3,28 +3,28 @@ version: '2'
 services:
 
   db1:
-    image: "mongo:latest"
+    image: "mongo:3.4"
     command: 'mongod --replSet "databank0"'
     networks:
       db:
         ipv4_address: 172.23.42.3
 
   db2:
-    image: "mongo:latest"
+    image: "mongo:3.4"
     command: 'mongod --replSet "databank0"'
     networks:
       db:
         ipv4_address: 172.23.42.4
 
   db3:
-    image: "mongo:latest"
+    image: "mongo:3.4"
     command: 'mongod --replSet "databank0"'
     networks:
       db:
         ipv4_address: 172.23.42.2
 
   db4:
-    image: "mongo:latest"
+    image: "mongo:3.4"
     networks:
       db:
         ipv4_address: 172.23.42.5
