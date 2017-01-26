@@ -14,10 +14,10 @@
   },
   "description": "Databank driver for MongoDB",
   "dependencies": {
-    "databank": "^0.19.8",
+    "databank": "^1.0.0",
     "debug": "^2.2.0",
-    "mongodb": "^2.2.21",
-    "step": "^0.0.6",
+    "mongodb": "^2.2.22",
+    "step": "^1.0.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
