@@ -14,7 +14,7 @@
   },
   "description": "Databank driver for MongoDB",
   "dependencies": {
-    "databank": "^1.0.0",
+    "databank": "^1.0.1",
     "debug": "^2.2.0",
     "mongodb": "^2.2.22",
     "step": "^1.0.0",
