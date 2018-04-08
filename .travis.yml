@@ -5,7 +5,7 @@ services:
   - docker
 
 env:
-  COMPOSE_VERSION: 1.7.1
+  COMPOSE_VERSION: 1.20.1
 
 before_install:
  - sudo apt-get update
@@ -20,9 +20,11 @@ language: node_js
 node_js:
   - "4"
   - "6"
-  - "0.12"
+  - "8"
+  - "9"
 
 script:
   - "sudo docker-compose up -d"
-  - "./node_modules/.bin/vows --spec test/mongodb-driver-test.js"
+  - "sudo docker-compose exec db1 mongo --eval \"rs.initiate({_id: 'databank0', version: 1, members: [{_id: 0, host:'172.23.42.2:27017'}, {_id: 1, host: '172.23.42.3:27017'}, {_id: 2, host: '172.23.42.4:27017'}]});\" 172.23.42.2/test
+  - "npm run test"
   - "sudo docker-compose stop"
