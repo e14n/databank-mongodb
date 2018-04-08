@@ -1,3 +1,4 @@
+---
 sudo: required
 
 services:
@@ -7,12 +8,12 @@ env:
   COMPOSE_VERSION: 1.20.1
 
 before_install:
- - sudo apt-get update
- - sudo apt-get purge --yes docker-ce
- - sudo apt-get install --yes --force-yes docker-ce
- - curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
- - chmod +x docker-compose
- - sudo mv docker-compose /usr/local/bin
+  - sudo apt-get update
+  - sudo apt-get purge --yes docker-ce
+  - sudo apt-get install --yes --force-yes docker-ce
+  - curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
 
 language: node_js
 
@@ -24,6 +25,8 @@ node_js:
 
 script:
   - "sudo docker-compose up -d"
-  - "sudo docker-compose exec db1 mongo --eval \"rs.initiate({_id: 'databank0', version: 1, members: [{_id: 0, host:'172.23.42.2:27017'}, {_id: 1, host: '172.23.42.3:27017'}, {_id: 2, host: '172.23.42.4:27017'}]});\" 172.23.42.2/test
+  - >
+    sudo docker-compose exec db1 mongo --eval "rs.initiate({_id: 'databank0', version: 1, members: [{_id: 0, host:'172.23.42.2:27017'}, {_id: 1, host: '172.23.42.3:27017'}, {_id: 2, host: '172.23.42.4:27017'}]});" 172.23.42.2/test
+  - "sleep 30"
   - "npm run test"
   - "sudo docker-compose stop"
