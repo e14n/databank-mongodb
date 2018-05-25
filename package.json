@@ -21,7 +21,7 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "vows": "^0.8.1"
+    "vows": "^0.8.2"
   },
   "licenses": [
     {
